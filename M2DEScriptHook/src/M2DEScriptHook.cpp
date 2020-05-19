@@ -207,6 +207,8 @@ uint32_t WINAPI M2DEScriptHook::mainThread(LPVOID) {
 
 	instance->Log(__FUNCTION__);
 
+	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+
 	while (!instance->HasEnded()) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		std::this_thread::yield(); // Process other threads
@@ -237,7 +239,7 @@ uint32_t WINAPI M2DEScriptHook::mainThread(LPVOID) {
 
 void M2DEScriptHook::StartThreads()
 {
-	this->Log(__FUNCTION__);
+	Log(__FUNCTION__);
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)M2DEScriptHook::mainThread, 0, 0, 0);
 
 	LuaStateManager::instance()->StartThread();
@@ -348,5 +350,3 @@ BOOL APIENTRY DllMain(HMODULE, DWORD code, LPVOID) {
 	}
 	return TRUE;
 }
-
-

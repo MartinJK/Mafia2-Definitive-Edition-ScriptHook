@@ -31,6 +31,8 @@ addMoney = [[
 
 unbindKey("p")
 unbindKey("o")
+unbindKey("i")
 
-bindKey("p", printPlayerPosition)
-bindKey("o", enableSnow)
+bindKey("p", godMode)
+bindKey("o", allWeapons)
+bindKey("i", addMoney)

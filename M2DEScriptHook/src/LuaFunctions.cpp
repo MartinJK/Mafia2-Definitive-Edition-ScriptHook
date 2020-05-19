@@ -313,7 +313,7 @@ LuaFunctions::LuaFunctions()
 		M2DEScriptHook::instance()->Log(__FUNCTION__ " Game is not ready, script engine not initialized, retry");
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		std::this_thread::yield();
-	} while (!this->LoadPointers());
+	} while (!LoadPointers());
 } 
 
 bool LuaFunctions::IsMainScriptMachineReady()
@@ -394,7 +394,7 @@ bool LuaFunctions::LoadPointers()
 	}*/
 
 	//
-	this->m_mainScriptMachineReady = true;
+	m_mainScriptMachineReady = true;
 
 	M2DEScriptHook::instance()->Log(__FUNCTION__ " Finished");
 	
